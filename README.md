@@ -8,14 +8,20 @@ Installation of arduino IDE and the TTGO-T can be done by following the procedur
 Visual Studio can be downloaded directly from Microsoft's homepage[^VS];
 
 ## Library Installation Guide
+Download the library in zip format.
+
+### Arduino
+Open the dropdown menu Sketch and pick Include Library, Add zip library and select the file in the dowload directory.
+### Visual Studio
+Open AddLibrary from the task bar and install library from zip and re-scan under vMicro-General.
 
 ## Pin Configuration
+In the AES.h the digital audio pins are assigned and the output samplerate. Please note. The assigned samplerate is two times the audio samplerate because of the bi-phase mark encoding[¨2]. GPIO_NUM_26 is the serial data output and leave the other pins un-connected. A FrameFlag is defined to pin 17 but any pin can be used.
 
 ## Examples
-In the example folder
+The sinetone generator can be found in the example/basic folder or in the dropdown Example list under AES3.
 
 ## Testing
-
 The sinetone generator has been tested with a FFT Analyzer[^FFT] on the DK-Technohogies[^DK] DKT7.
 
 ## ToDo List
