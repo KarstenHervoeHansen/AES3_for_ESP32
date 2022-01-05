@@ -1,5 +1,5 @@
 # AES3/EBU tech 3250 Digital Audio Output on ESP32
-This library will utilize the SPI output of the ES32[^1] chip to for a digital audio interface according to EBU tech 3250[^2]. The code has been testet on the
+This library will utilize the SPI output of the ES32[^1] chip to form a digital audio interface according to EBU tech 3250[^2]. The code has been testet on the
 LilyGO TTGO-T display[^3] and the ESP32 D1 R32 UNO from Wemos.
 
 ## Development Environment
