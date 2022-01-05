@@ -5,9 +5,9 @@ LilyGO TTGO-T display[^3] and the ESP32 D1 R32 UNO from Wemos.
 ## Development Environment
 The code has been developed in Microsoft Visual Studio VS2019 with the Visual Micro[^4] extension but it is fully compatible with the Arduino IDE[^5].
 
-## Installation Guide
+## Library Installation Guide
 
-## Configuration
+## Pin Configuration
 
 ## Examples
 In the example folder
