@@ -4,11 +4,8 @@
  Author:	kh
 */
 
-
-
 #include "AES.h"
 #include "SinWaveGenerator.h"
-
 
 void InitTestPattern() {
     for (int i = 0; i < NUM_FRAMES_TO_SEND; i++) {
@@ -18,14 +15,10 @@ void InitTestPattern() {
     AES.WriteFrame(191, AES.y, 0x5A5A00);
 }
 
-
 void setup()
 {
     Serial.begin(921600);
-
     Serial.println("Starting up");
-
-
 
     //InitTestPattern();
 }
@@ -33,7 +26,6 @@ void setup()
 void loop()
 {
     if (digitalRead(FrameFlag)) {
-
         digitalWrite(FrameFlag, LOW);
         Generator.GetSamples();
     }
