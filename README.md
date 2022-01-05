@@ -2,19 +2,22 @@
 This library will utilize the SPI output of the ES32[^1] chip to for a digital audio interface according to EBU tech 3250[^2]. The code has been testet on the
 LilyGO TTGO-T display[^3] and the ESP32 D1 R32 UNO from Wemos.
 
-# Development Environment
+## Development Environment
 The code has been developed in Microsoft Visual Studio VS2019 with the Visual Micro[^4] extension but it is fully compatible with the Arduino IDE[^5].
 
-# Installation Guide
+## Installation Guide
 
-# Configuration
+## Configuration
 
-# Examples
+## Examples
 In the example folder
 
-# Testing
+## Testing
 
-# Contribute
+## ToDo List
+* Channel Status
+* 
+## Contribution
 
 Please contact me if you like to contribute[^Contact].
 
