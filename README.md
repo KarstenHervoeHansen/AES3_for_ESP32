@@ -14,6 +14,8 @@ In the example folder
 
 ## Testing
 
+The sinetone generator has been tested with a FFT Analyzer[^FFT] on the DK-Technohogies[^DK] DKT7.
+
 ## ToDo List
 * Channel Status
 * 
@@ -27,5 +29,7 @@ Please contact me if you like to contribute[^Contact].
 [^3]: Application example on Joen's code snippets [TTGo-T](https://sites.google.com/site/jmaathuis/arduino/lilygo-ttgo-t-display-esp32).
 [^4]: Visual Micro (https://www.visualmicro.com/).
 [^5]: Arduino IDE (https://www.arduino.cc/en/software).
+[^FFT]:  Fast Fourier transform (https://en.wikipedia.org/wiki/Fast_Fourier_transform).
+[^DK]: DK-Technologies (https://www.hansens.dk/);
 [^Contact]: Contact: Karsten Hervoe Hansen khh@hansens.dk
 
