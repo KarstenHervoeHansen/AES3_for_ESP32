@@ -7,9 +7,12 @@ The code has been developed in Microsoft Visual Studio VS2019 with the Visual Mi
 
 # Installation Guide
 
+# Configuration
 
 # Examples
 In the example folder
+
+# Testing
 
 # Contribute
 
