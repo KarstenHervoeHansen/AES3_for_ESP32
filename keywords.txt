@@ -6,8 +6,8 @@
 # Literals (LITERAL1)
 ###############################################
 
-
-
+FrameFlag		LITERAL1
+NUM_FRAMES_TO_SEND 	LITERAL1
 
 ###############################################
 # Datatypes (KEYWORD1)
@@ -15,12 +15,19 @@
 
 
 
-
 ###############################################
 # Functions (KEYWORD2)
 ###############################################
 
+WriteFrame	KEYWORD2
+GetSamples	KEYWORD2
 
+###############################################
+# Structure (KEYWORD3)
+###############################################
+
+AES		KEYWORD3
+Generator 	KEYWORD3
 
 
 
