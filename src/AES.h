@@ -22,16 +22,18 @@
 class SPDIFClass
 {
 protected:
-    int SampleRate = 96000; /*!< bitrate is two times the audio sapplerate */
+    int SampleRate = 96000; /*!< bitrate is two times the audio samplerate */
 
 
     i2s_port_t i2sPort = I2S_NUM_1;
 
     i2s_pin_config_t I2SPins = {
-        /*bck_io_num */    GPIO_NUM_27,
-        /*ws_io_num  */    GPIO_NUM_14,
-        /*data_out_num */  GPIO_NUM_26,
-        /*data_in_num */   -1 };
+		.mck_io_num = GPIO_NUM_0, 		// 
+        .bck_io_num = GPIO_NUM_27, 		// BCLK
+        .ws_io_num = GPIO_NUM_14, 		// LR clock
+        .data_out_num = GPIO_NUM_26, 	// AES out
+        .data_in_num = -1
+ };
 
     typedef struct {
         uint8_t status;
@@ -51,8 +53,6 @@ public:
     uint16_t FrameSize = sizeof(OutputFrames);
 
     Frame_t* FramePtr = OutputFrames;
-    uint8_t InterruptLoopPin = 12; /*!< Note: this pin must be connected to ws_io_num (GPIO_NUM_14)*/ 
-
 
     void SPDIFinit();
     uint32_t getSampleRate() { return SampleRate / 2; }
@@ -64,6 +64,7 @@ private:
     QueueHandle_t m_i2sQueue;
     i2s_port_t m_i2sPort;
     Frame_t OutputFrames[NUM_FRAMES_TO_SEND];
+	
 };
 
 

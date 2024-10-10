@@ -9,6 +9,7 @@ void i2sWriterTask(void* param)
 {
     pinMode(FrameFlag, OUTPUT);
     size_t bytesWritten = 0;
+	esp_err_t   err;
     while (true)
     {
         i2s_event_t evt;
@@ -17,8 +18,13 @@ void i2sWriterTask(void* param)
             if (evt.type == I2S_EVENT_TX_DONE)
             {
                 AES.ConvertFrames();
-                i2s_write(AES.m_i2sPort, (uint8_t*)AES.FramePtr, AES.FrameSize, &bytesWritten, portMAX_DELAY);
+                err = i2s_write(AES.m_i2sPort, (uint8_t*)AES.FramePtr, AES.FrameSize, &bytesWritten, portMAX_DELAY);
                 digitalWrite(FrameFlag, HIGH);
+				
+				if(err != ESP_OK)
+				{
+					Serial.printf("i2s_feed_task: i2s_write failed. Err code %d\r\n", err);
+				}
             }
         }
     }
@@ -27,6 +33,10 @@ void i2sWriterTask(void* param)
 
 void SPDIFClass::SPDIFinit()
 {
+    esp_err_t err;
+	Serial.begin(115200);
+    Serial.println("SPDIF Starting up");
+	
     i2s_config_t i2sConfig = {
         .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_TX),
         .sample_rate = SampleRate,
@@ -35,16 +45,23 @@ void SPDIFClass::SPDIFinit()
         .communication_format = (i2s_comm_format_t)(I2S_COMM_FORMAT_I2S),
         .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
         .dma_buf_count = 2,
-        .dma_buf_len = 192,
+        .dma_buf_len = NUM_FRAMES_TO_SEND,
         .use_apll = true };
 
     m_i2sPort = i2sPort;
+	
     //install and start i2s driver
-    i2s_driver_install(m_i2sPort, &i2sConfig, 4, &m_i2sQueue);
+    err = i2s_driver_install(m_i2sPort, &i2sConfig, 4, &m_i2sQueue);
+    if(err != ESP_OK){ Serial.printf("i2s_driver_install error"); }
+
     // set up the i2s pins
-    i2s_set_pin(m_i2sPort, &I2SPins);
+    err = i2s_set_pin(m_i2sPort, &I2SPins);
+    if(err != ESP_OK){ Serial.printf("i2s_set_pin error"); }	
+	
     // clear the DMA buffers
-    i2s_zero_dma_buffer(m_i2sPort);
+    err = i2s_zero_dma_buffer(m_i2sPort);
+    if(err != ESP_OK){ Serial.printf("i2s_zero_dma_buffer error"); }	
+	
     // start a task to write samples to the i2s peripheral
     TaskHandle_t writerTaskHandle;
     xTaskCreate(i2sWriterTask, "i2s Writer Task", 1024, this, 1, &writerTaskHandle);
