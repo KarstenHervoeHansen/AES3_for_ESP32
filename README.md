@@ -50,5 +50,5 @@ Updated Oct.10. 2024 to be compatible with esp32 by Espressif Systems version 3.
 [^VS]: Visual Studio (https://visualstudio.microsoft.com/downloads).
 [^FFT]:  Fast Fourier transform (https://en.wikipedia.org/wiki/Fast_Fourier_transform).
 [^DK]: DK-Technologies (https://www.hansens.dk/);
-[^Contact]: Contact: Karsten Hervoe Hansen khh@hansens.dk
+[^Contact]: Contact: Karsten Hervoe Hansen kh@hansens.dk
 
