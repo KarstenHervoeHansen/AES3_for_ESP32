@@ -20,7 +20,7 @@ Search for ESP32 and install esp32 by Espressif Systems version 3.0.5
 Open AddLibrary from the task bar and install library from zip and re-scan under vMicro-General.
 
 ## Pin Configuration
-In the AES.h the digital audio pins are assigned and the output samplerate. Please note. The assigned samplerate is two times the audio samplerate because of the bi-phase mark encoding[¨2]. GPIO_NUM_26 is the serial data output and leave the other pins un-connected. A FrameFlag is defined to pin 17 but any pin can be used.
+In the AES.h the digital audio pins are assigned and the output samplerate. Please note. The assigned samplerate is two times the audio samplerate because of the bi-phase mark encoding[^2]. GPIO_NUM_26 is the serial data output and leave the other pins un-connected. A FrameFlag is defined to pin 17 but any pin can be used.
 ## Output Impedance
 The specification calls for a ballanced 300 Ohms or 50 Ohms un-ballanced out. The output impedance of the native pin of the ESP32 is approximately 10 Ohms so adding an external resistor of 39 Ohms in series with the pin will satisfy the requirement for impedance matching and protection of the ESP32 output
 
